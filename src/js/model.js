@@ -1,7 +1,6 @@
 import { map } from "leaflet";
 
 export const state = {
-  initPosition: [],
   runningRecord: {
     // startTime,
     // endTime,
@@ -18,7 +17,7 @@ export const loadCurrentPosition = function () {
     navigator.geolocation.getCurrentPosition(
       function (position) {
         const { latitude: lat, longitude: lng } = position.coords;
-        console.log(map);
+
         const map = L.map("mapID").setView([lat, lng], 20);
 
         L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
@@ -37,4 +36,5 @@ export const loadCurrentPosition = function () {
       }
     );
   }
+  if (!navigator.geolocation) console.log(`not working!`);
 };

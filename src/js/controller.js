@@ -16,12 +16,12 @@ const controlStopwatch = function () {
   toggleClass(stopwatchView.btnStart(), stopwatchView.btnEnd());
 };
 
-const controlStartRecord = function () {
-  //render the finish button
-  //capture startTime and startPosition to state
-};
+// const controlStartRecord = function () {
+//   //render the finish button
+//   //capture startTime and startPosition to state
+// };
 
-const controlEndRecord = function () {};
+// const controlEndRecord = function () {};
 
 const init = function () {
   model.loadCurrentPosition();
