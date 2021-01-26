@@ -1,7 +1,7 @@
 import { formatTime } from "../helper";
-import btnView from "./btnView";
+import ButtonView from "./ButtonView";
 
-class stopwatchView extends btnView {
+class stopwatchView extends ButtonView {
   _viewTimer = document.getElementById("time");
 
   render(data) {

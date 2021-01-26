@@ -1,4 +1,5 @@
 import { map } from "leaflet";
+import { geoError, showMap } from "../js/helper";
 
 export const state = {
   runningRecord: {
@@ -10,31 +11,22 @@ export const state = {
   },
 };
 
-export const loadStartRecord = function () {};
+export const loadStartData = function () {
+  state.runningRecord.startTime = new Date();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      state.runningRecord.startPosition = position.coords;
+    }, geoError);
+  }
+
+  console.log(state.runningRecord);
+};
 
 export const loadCurrentPosition = function () {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      function (position) {
-        const { latitude: lat, longitude: lng } = position.coords;
-
-        const map = L.map("mapID").setView([lat, lng], 20);
-
-        L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-          tileSize: 256,
-        }).addTo(map);
-
-        L.marker([lat, lng])
-          .addTo(map)
-          .bindPopup("📍 Your Starting Position")
-          .openPopup();
-      },
-      function () {
-        alert("Please Reload the Website to Get Your Current Location!🗺");
-      }
-    );
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const { latitude: lat, longitude: lng } = position.coords;
+      showMap(lat, lng);
+    }, geoError);
   }
-  if (!navigator.geolocation) console.log(`not working!`);
 };

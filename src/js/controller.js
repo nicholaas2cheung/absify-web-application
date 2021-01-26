@@ -6,20 +6,21 @@ import recordView from "./views/recordView";
 import { toggleClass } from "./helper";
 
 const controlStopwatch = function () {
-  //callback function here
+  //load the inital time
   const startTime = Date.now();
-
+  //update the timer for every 1 second
   setInterval(function () {
     stopwatchView.render(startTime);
   }, 1000);
-
-  toggleClass(stopwatchView.btnStart(), stopwatchView.btnEnd());
+  //render the "Finish" button
+  stopwatchView.toggleClass();
 };
 
-// const controlStartRecord = function () {
-//   //render the finish button
-//   //capture startTime and startPosition to state
-// };
+const controlStartRecord = function () {
+  //render the finish button
+  //capture startTime and startPosition to state
+  model.loadStartData();
+};
 
 // const controlEndRecord = function () {};
 
@@ -29,3 +30,4 @@ const init = function () {
 };
 
 init();
+controlStartRecord();
