@@ -9,9 +9,9 @@ class stopwatchView extends ButtonView {
     this._viewTimer.innerHTML = formatTime(passedTime);
   }
 
-  addHandlerRender(handler) {
-    this._btnStart.addEventListener("click", handler);
-  }
+  // addHandlerRender(handler) {
+  //   this._btnStart.addEventListener("click", handler);
+  // }
 }
 
 export default new stopwatchView();
