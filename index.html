@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="src/js/controller.js"></script>
+    <title>ABSify</title>
+  </head>
+
+  <body>
+    <!---NavBar--->
+    <div class="navbar">
+      <div class="container flex">
+        <h1 class="logo">ABSIFY</h1>
+        <nav>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Features</a></li>
+            <li><a href="">Map My Run</a></li>
+            <li><a href="">Track My Calories</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!---Hero Section--->
+    <div class="hero-section">
+      <div class="container flex">
+        <div class="hero-left">
+              <h1 class="slogan">Build Your ABS In 30 Days</h1>
+              <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry. Lorem Ipsum has been the industry's standard dummy text
+                    ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. It has survived not
+                    only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged.
+              </p>
+              <button class="cta">Get Started Today</button>
+          </div>
+        <div class="hero-right">
+          <img src="src/img/hero-section-image.svg" alt="a-man-running" />
+        </div>
+      </div>
+    </div>
+
+    <!--Features Section-->
+    <div class="feature-section">
+      <div class="container">
+          <h2>All Features You Need in Only One Application</h2>
+            <div class="flex" id="feature-1">
+              <img class="feature-img" src="src/img/wireframe-image.svg" alt="">
+              <div class=feature-text>
+                  <h4>EXERCISING</h4>
+                  <h3>Mapping All Your Run</h3>
+                  <p>
+                      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                  </p>
+              </div>
+          </div>
+
+          <div class="flex" id="feature-2">
+            <img class="feature-img" src="src/img/wireframe-image.svg" alt="">
+            <div class=feature-text>
+                <h4>NUTRITION</h4>
+                <h3>Calculate Your Calories Intake</h3>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+            </div>
+          </div>
+          
+          <div class="flex" id="feature-3">
+            <img class="feature-img" src="src/img/wireframe-image.svg" alt="">
+            <div class=feature-text>
+                <h4>RECOND & IMPROVE</h4>
+                <h3>Track Your Weight Change</h3>
+                <p>It is a losng established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Benefit Seciotn-->
+    <div class="benefit-section">
+      <div class="container">
+        <h2>Build Your Desired Body Shape In A Right Way</h2>
+          <div class="flex">
+            <div class="benefit-left">
+              <img src="/src/img/sport-girl.svg" alt="">
+            </div>
+            <div class="benefit-right">
+
+              <div class="flex">
+                <div class="benefit-card" id="benefit-card-1">
+                  <img src="/src/img/pound.svg" alt="">
+                  <h3>Say NO to </br>Rebound Weight Gain</h3>
+                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                </div>
+                <div class="benefit-card" id="benefit-card-2">
+                  <img src="/src/img/apple.svg" alt="">
+                  <h3>Understand </br>What You Eat</h3>
+                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                </div>
+                <div class="benefit-card" id="benefit-card-3">
+                  <img src="/src/img/tracking.svg" alt="">
+                  <h3>Track and Improve </br> Every Progress</h3>
+                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                </div>
+              </div>
+              <div class="pagination flex">
+                <div class="arrow-box">
+                  <img class="arrow" src="/src/img/left-arrow.svg" alt="">
+                </div>
+                <div class="arrow-box">
+                  <img class="arrow" src="/src/img/right-arrow.svg" alt="">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Start Section-->
+    <div class="start-section">
+      <div class="container flex">
+              <div class="start-left">
+                  <h3>Select and Start:</h3>
+                  <button class="start-run">Map My Run</button>
+                  <button class="start-calories">Track My Calories</button>
+              </div>
+              <div class="start-right">
+                  <img src="/src/img/barbell-boy.svg" alt="">
+              </div>
+          </div>
+<!--App Section-->
+      <div class="run-app">
+        <div class="run-app-header flex">
+          <h3>🎽 Map Your Run Here</h3>
+          <p>19th, January, 2021</p>
+        </div>
+        <div class="stroke"></div>
+        <div class="run-app-body flex">
+          <div class="run-app-left"> 
+            <h5>MAP & ROUTE</h5>
+          <div class="map-section">
+            <div class="run-map" id="mapID"></div>
+            <button class="run-start" id="start-button">START</button>
+            <button class="run-end hidden" id="end-button">FINISH</button>
+          </div>
+          </div>
+          <div class="run-app-right">
+            <div class="run-app-record" id="run-record">
+              <h5>RECORD</h5>
+              <div class="run-card">
+                <div class="color-header"></div>
+                <p class="run-date">Running on 19th, January</p>
+                <p class="run-location">🏃🏻‍♂️ Kam Tai Court - ⛳️ City One </p>
+                <div class="run-data flex">
+                  <div class="run-distance"><p>👟 12 <span>KM</span></p></div>
+                  <div class="run-duration"><p>⏱ 30 <span>MIN</span></p></div>
+                  <div class="run-speed"><p>⚡️ 30 <span>KM/H</span></p></div>
+                </div>
+              </div>
+
+              <!-- <div class="run-card">
+                <div class="color-header"></div>
+                <p class="run-date">Running on 19th, January</p>
+                <p class="run-location">🏃🏻‍♂️ Kam Tai Court - ⛳️ City One </p>
+                <div class="run-data flex">
+                  <div class="run-distance"><p>👟 12 <span>KM</span></p></div>
+                  <div class="run-duration"><p>⏱ 30 <span>MIN</span></p></div>
+                  <div class="run-speed"><p>⚡️ 30 <span>KM/H</span></p></div>
+                </div>
+              </div>
+
+              <div class="run-card">
+                  <div class="color-header"></div>
+                <p class="run-date">Running on 19th, January</p>
+                <p class="run-location">🏃🏻‍♂️ Kam Tai Court - ⛳️ City One </p>
+                <div class="run-data flex">
+                  <div class="run-distance"><p>👟 12 <span>KM</span></p></div>
+                  <div class="run-duration"><p>⏱ 30 <span>MIN</span></p></div>
+                  <div class="run-speed"><p>⚡️ 30 <span>KM/H</span></p></div>
+                </div>
+              </div> -->
+
+              <div class="pagination">
+                <div class="arrow-box">
+                  <img class="arrow" src="/src/img/left-arrow.svg" alt="">
+                </div>
+                <div class="arrow-box">
+                  <img class="arrow" src="/src/img/right-arrow.svg" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="run-app-time">
+              <h5>TIME</h5>
+              <div class="timer" id="run-timer">
+                  <div class="timer-count"><span>⏰</span><span id="time">00:00:00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
