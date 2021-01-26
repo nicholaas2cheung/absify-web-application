@@ -8,10 +8,6 @@ class stopwatchView extends ButtonView {
     let passedTime = Date.now() - data;
     this._viewTimer.innerHTML = formatTime(passedTime);
   }
-
-  // addHandlerRender(handler) {
-  //   this._btnStart.addEventListener("click", handler);
-  // }
 }
 
 export default new stopwatchView();

@@ -6,10 +6,6 @@ class recordView extends ButtonView {
   render(data) {}
 
   renderMarkUp() {}
-
-  // addStartDataHandler(handler) {
-  //   this._btnStart.addEventListener("click", handler);
-  // }
 }
 
 export default new recordView();

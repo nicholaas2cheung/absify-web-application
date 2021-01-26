@@ -18,4 +18,8 @@ export default class ButtonView {
   addStartButtonHandler(handler) {
     this._btnStart.addEventListener("click", handler);
   }
+
+  addEndButtonHandler(handler) {
+    this._btnEnd.addEventListener("click", handler);
+  }
 }
