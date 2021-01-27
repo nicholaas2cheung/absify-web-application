@@ -1,4 +1,5 @@
 "use strict";
+import "regenerator-runtime/runtime";
 import { control, map } from "leaflet";
 import * as model from "./model";
 import ButtonView from "./views/ButtonView";
@@ -26,11 +27,19 @@ const controlStartButton = async function () {
   }
 };
 
-const controlEndButton = function () {
-  //capture endTime and endPosition to state
-  model.loadEndData();
-  //render the finish button
-  stopwatchView.toggleClass();
+const controlEndButton = async function () {
+  try {
+    //capture endTime and endPosition to state
+    await model.loadEndData();
+
+    //calculate the whole running record
+    model.calRunRecord();
+
+    //render the finish button
+    stopwatchView.toggleClass();
+  } catch (err) {
+    console.err(err);
+  }
 };
 
 const init = function () {
