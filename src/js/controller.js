@@ -34,10 +34,10 @@ const controlEndButton = async function () {
     await model.loadEndData();
 
     //calculate the whole running record
-    model.formatRunRecord();
+    await model.formatRunRecord();
 
     //render the record using model.state data
-    // recordView.renderRecord(model.allRunRecord);
+    recordView.renderRecord(model.state.allRunRecord);
   } catch (err) {
     console.log(err);
   }

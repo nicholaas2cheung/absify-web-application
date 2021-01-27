@@ -1,3 +1,6 @@
+import { months } from "./config";
+import { state } from "./model";
+
 export const formatTime = (time) => {
   let diffInHour = time / 3600000;
   let hh = Math.floor(diffInHour);
@@ -43,4 +46,15 @@ export const getCoordinates = () => {
   return new Promise((resolve, reject) =>
     navigator.geolocation.getCurrentPosition(resolve, reject)
   );
+};
+
+export const getMonthName = (month) => months[month.getMonth()];
+
+export const getMinute = (time) => Math.ceil(time / 60000);
+
+export const getDateUnit = (date) => {
+  if ((date + "").slice(-1) === "1") return "st";
+  if ((date + "").slice(-1) === "2") return "nd";
+  if ((date + "").slice(-1) === "3") return "rd";
+  return "th";
 };
