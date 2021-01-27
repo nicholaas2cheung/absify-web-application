@@ -7,22 +7,16 @@ import stopwatchView from "./views/stopwatchView";
 import recordView from "./views/recordView";
 import { geoError, toggleClass } from "./helper";
 
-const timerInterval = function (data) {
-  setInterval(function () {
-    stopwatchView.render(data);
-  }, 1000);
-};
-
 const controlStartButton = async function () {
   try {
-    //capture startTime and startPosition to state
-    await model.loadStartData();
-
     // update the timer for every 1 second
     stopwatchView.renderStopwatch();
 
     //render the finish button
     stopwatchView.toggleClass();
+
+    //capture startTime and startPosition to state
+    await model.loadStartData();
   } catch (err) {
     console.log(err);
   }
@@ -31,16 +25,19 @@ const controlStartButton = async function () {
 const controlEndButton = async function () {
   try {
     //clear the timer
-    clearInterval(timerInterval());
+    stopwatchView.resetStopwatch();
+
+    //render the finish button
+    stopwatchView.toggleClass();
 
     //capture endTime and endPosition to state
     await model.loadEndData();
 
     //calculate the whole running record
-    model.calRunRecord();
+    model.formatRunRecord();
 
-    //render the finish button
-    stopwatchView.toggleClass();
+    //render the record using model.state data
+    // recordView.renderRecord(model.allRunRecord);
   } catch (err) {
     console.log(err);
   }

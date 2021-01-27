@@ -15,10 +15,11 @@ export const state = {
 export const loadStartData = async function () {
   try {
     const position = await getCoordinates();
+    console.log(state);
     const { latitude: lat, longitude: lng } = position.coords;
+    //the assignment here will affect the original value of the runRecord object inside the array
     state.runRecord.startTime = +Date.now();
     state.runRecord.startPosition = { lat, lng };
-    console.log(state.runRecord);
   } catch (e) {
     console.error(e);
     geoError();
@@ -31,17 +32,18 @@ export const loadEndData = async function () {
     const { latitude: lat, longitude: lng } = position.coords;
     state.runRecord.endTime = +Date.now();
     state.runRecord.endPosition = { lat, lng };
-    console.log(state.runRecord);
   } catch (e) {
     console.error(e);
     geoError();
   }
 };
 
-export const calRunRecord = function () {
+export const formatRunRecord = function () {
+  console.log(state.allRunRecord);
   state.runRecord.duration =
     state.runRecord.endTime - state.runRecord.startTime;
-  console.log(state.runRecord);
+  state.allRunRecord.push(state.runRecord);
+  return (state.runRecord = {});
 };
 
 export const loadCurrentPosition = function () {

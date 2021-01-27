@@ -44,13 +44,3 @@ export const getCoordinates = () => {
     navigator.geolocation.getCurrentPosition(resolve, reject)
   );
 };
-
-// export const timerInterval = (fn) => {
-//   setInterval(fn, 1000);
-//   console.log(fn);
-// };
-
-// export const getStartTime = () => {
-//   let startTime = Date.now();
-//   return startTime;
-// };
