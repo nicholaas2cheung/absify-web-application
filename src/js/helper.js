@@ -12,7 +12,6 @@ export const formatTime = (time) => {
   let formattedMM = mm.toString().padStart(2, "0");
   let formattedSS = ss.toString().padStart(2, "0");
 
-  console.log(`${formattedHH}:${formattedMM}:${formattedSS}`);
   return `${formattedHH}:${formattedMM}:${formattedSS}`;
 };
 
@@ -45,3 +44,13 @@ export const getCoordinates = () => {
     navigator.geolocation.getCurrentPosition(resolve, reject)
   );
 };
+
+// export const timerInterval = (fn) => {
+//   setInterval(fn, 1000);
+//   console.log(fn);
+// };
+
+// export const getStartTime = () => {
+//   let startTime = Date.now();
+//   return startTime;
+// };

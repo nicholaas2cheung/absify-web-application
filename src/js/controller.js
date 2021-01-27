@@ -7,28 +7,32 @@ import stopwatchView from "./views/stopwatchView";
 import recordView from "./views/recordView";
 import { geoError, toggleClass } from "./helper";
 
+const timerInterval = function (data) {
+  setInterval(function () {
+    stopwatchView.render(data);
+  }, 1000);
+};
+
 const controlStartButton = async function () {
   try {
     //capture startTime and startPosition to state
     await model.loadStartData();
 
-    //load the inital time
-    const startTime = Date.now();
-
-    //update the timer for every 1 second
-    setInterval(function () {
-      stopwatchView.render(startTime);
-    }, 1000);
+    // update the timer for every 1 second
+    stopwatchView.renderStopwatch();
 
     //render the finish button
     stopwatchView.toggleClass();
   } catch (err) {
-    console.err(err);
+    console.log(err);
   }
 };
 
 const controlEndButton = async function () {
   try {
+    //clear the timer
+    clearInterval(timerInterval());
+
     //capture endTime and endPosition to state
     await model.loadEndData();
 
@@ -38,7 +42,7 @@ const controlEndButton = async function () {
     //render the finish button
     stopwatchView.toggleClass();
   } catch (err) {
-    console.err(err);
+    console.log(err);
   }
 };
 
