@@ -1,8 +1,9 @@
 import { map } from "leaflet";
-import { geoError, showMap } from "../js/helper";
+import { geoError, showMap, getCoordinates } from "../js/helper";
 
 export const state = {
-  runningRecord: {
+  allRunRecord: [],
+  runRecord: {
     // startTime,
     // endTime,
     // duration,
@@ -11,23 +12,45 @@ export const state = {
   },
 };
 
-export const loadStartData = function () {
-  state.runningRecord.startTime = +Date.now();
-  console.log(typeof state.runningRecord.startTime);
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      state.runningRecord.startPosition = position.coords;
-    }, geoError);
+export const loadStartData = async function () {
+  try {
+    const position = await getCoordinates();
+    const { latitude: lat, longitude: lng } = position.coords;
+    state.runRecord.startTime = +Date.now();
+    state.runRecord.startPosition = { lat, lng };
+  } catch (e) {
+    console.error(e);
+    geoError();
   }
 };
 
+// export const loadStartData = function () {
+//   state.runRecord.startTime = +Date.now();
+//   console.log(typeof state.runRecord.startTime);
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(function (position) {
+//       const { latitude: lat, longitude: lng } = position.coords;
+//       state.runRecord.startPosition = { lat, lng };
+//     }, geoError);
+//   }
+//   console.log(state.runRecord.startPosition);
+// };
+
 export const loadEndData = function () {
-  state.runningRecord.endTime = +Date.now();
+  state.runRecord.endTime = +Date.now();
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
-      state.runningRecord.endPosition = position.coords;
+      const { latitude: lat, longitude: lng } = position.coords;
+      state.runRecord.endPosition = { lat, lng };
     }, geoError);
   }
+
+  state.runRecord.duration =
+    state.runRecord.endTime - state.runRecord.startTime;
+
+  state.allRunRecord.push(state.runRecord);
+  // console.log(state.allRunRecord);
+  // console.log(state.runRecord);
 };
 
 export const loadCurrentPosition = function () {

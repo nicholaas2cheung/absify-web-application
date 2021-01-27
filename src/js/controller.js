@@ -6,24 +6,24 @@ import stopwatchView from "./views/stopwatchView";
 import recordView from "./views/recordView";
 import { geoError, toggleClass } from "./helper";
 
-navigator.geolocation.getCurrentPosition(function (position) {
-  console.log(position);
-}, geoError);
+const controlStartButton = async function () {
+  try {
+    //capture startTime and startPosition to state
+    await model.loadStartData();
 
-const controlStartButton = function () {
-  //capture startTime and startPosition to state
-  model.loadStartData();
+    //load the inital time
+    const startTime = Date.now();
 
-  //load the inital time
-  const startTime = Date.now();
+    //update the timer for every 1 second
+    setInterval(function () {
+      stopwatchView.render(startTime);
+    }, 1000);
 
-  //update the timer for every 1 second
-  setInterval(function () {
-    stopwatchView.render(startTime);
-  }, 1000);
-
-  //render the finish button
-  stopwatchView.toggleClass();
+    //render the finish button
+    stopwatchView.toggleClass();
+  } catch (err) {
+    console.err(err);
+  }
 };
 
 const controlEndButton = function () {
