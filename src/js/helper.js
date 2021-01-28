@@ -1,4 +1,5 @@
 import { months } from "./config";
+import { map } from "leaflet";
 import { state } from "./model";
 
 export const formatTime = (time) => {
@@ -28,6 +29,9 @@ export const geoError = () => {
 };
 
 export const showMap = (lat, lng) => {
+  var L = require("leaflet");
+  require("leaflet-routing-machine");
+  require("lrm-graphhopper");
   const map = L.map("mapID").setView([lat, lng], 20);
 
   L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
@@ -40,6 +44,11 @@ export const showMap = (lat, lng) => {
     .addTo(map)
     .bindPopup("📍 Your Starting Position")
     .openPopup();
+
+  L.Routing.control({
+    waypoints: [L.latLng(lat, lng), L.latLng(lat + 0.01, lng + 0.0121)],
+    router: new L.Routing.graphHopper("96c455e1-52dc-45fa-80bf-cf4631d03354"),
+  }).addTo(map);
 };
 
 export const getCoordinates = () => {

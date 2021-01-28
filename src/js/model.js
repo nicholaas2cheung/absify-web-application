@@ -49,6 +49,8 @@ export const formatRunRecord = async function () {
   }
 };
 
+export const loadRoute = function () {};
+
 export const loadCurrentPosition = function () {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {

@@ -18,6 +18,10 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "leaflet": "^1.7.1"
+    "graphhopper-js-api-client": "^0.13.0",
+    "leaflet": "^1.7.1",
+    "leaflet-routing-machine": "^3.2.12",
+    "lrm-graphhopper": "^1.3.0",
+    "tripkit-leaflet": "^1.0.3"
   }
 }
