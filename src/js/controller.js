@@ -5,7 +5,7 @@ import * as model from "./model";
 import ButtonView from "./views/ButtonView";
 import stopwatchView from "./views/stopwatchView";
 import recordView from "./views/recordView";
-import { geoError, toggleClass } from "./helper";
+import { geoError, toggleClass, showRoute } from "./helper";
 
 const controlStartButton = async function () {
   try {
@@ -38,6 +38,9 @@ const controlEndButton = async function () {
 
     //render the record using model.state data
     recordView.renderRecord(model.state.allRunRecord);
+
+    //show the route
+    showRoute(22.4, 114.0231, 22.4, 114.1123);
   } catch (err) {
     console.log(err);
   }
@@ -51,8 +54,11 @@ const init = function () {
 
 init();
 
-// setTimeout(function () {
-//   document.querySelector(".leaflet-routing-alternatives-container").innerHTML =
-//     "";
-//   console.log(`executed`);
-// }, 10000);
+navigator.geolocation.getCurrentPosition(
+  function (position) {
+    console.log(position);
+  },
+  function () {
+    alert("cannot get your location");
+  }
+);

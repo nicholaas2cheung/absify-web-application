@@ -1,6 +1,11 @@
 import { months } from "./config";
 import { map } from "leaflet";
 import { state } from "./model";
+import "leaflet";
+import "leaflet-routing-machine";
+import "lrm-graphhopper";
+
+let myMap;
 
 export const formatTime = (time) => {
   let diffInHour = time / 3600000;
@@ -29,28 +34,37 @@ export const geoError = () => {
 };
 
 export const showMap = function (lat, lng) {
-  var L = require("leaflet");
-  require("leaflet-routing-machine");
-  require("lrm-graphhopper");
-  const map = L.map("mapID").setView([lat, lng], 20);
+  myMap = L.map("mapID").setView([lat, lng], 20);
 
   L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     tileSize: 256,
-  }).addTo(map);
+  }).addTo(myMap);
 
   L.marker([lat, lng])
-    .addTo(map)
+    .addTo(myMap)
     .bindPopup("📍 Your Starting Position")
     .openPopup();
+};
 
-  L.Routing.control({
-    waypoints: [L.latLng(lat, lng), L.latLng(lat + 0.01, lng + 0.0121)],
-    router: new L.Routing.graphHopper("96c455e1-52dc-45fa-80bf-cf4631d03354"),
-  }).addTo(map);
+export const showRoute = async function (lat1, lng1, lat2, lng2) {
+  try {
+    let route = await L.Routing.control({
+      waypoints: [L.latLng(lat1, lng1), L.latLng(lat2, lng2)],
+      router: new L.Routing.graphHopper("96c455e1-52dc-45fa-80bf-cf4631d03354"),
+    });
+    route.addTo(myMap);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-  console.log(L.Routing);
+export const getRouteData = async function (lat1, lng1, lat2, lng2) {
+  const response = await fetch(
+    `https://graphhopper.com/api/1/route?point=${lat1},${lng1}&point=${lat2},${lng2}&vehicle=car&locale=de&calc_points=false&key=96c455e1-52dc-45fa-80bf-cf4631d03354`
+  );
+  const data = await response.json();
 };
 
 export const getCoordinates = () => {
