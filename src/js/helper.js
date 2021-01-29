@@ -28,7 +28,7 @@ export const geoError = () => {
   alert("😐 Cannot Locate Current Position. Please Try Again🙏🏻");
 };
 
-export const showMap = (lat, lng) => {
+export const showMap = function (lat, lng) {
   var L = require("leaflet");
   require("leaflet-routing-machine");
   require("lrm-graphhopper");
@@ -49,6 +49,8 @@ export const showMap = (lat, lng) => {
     waypoints: [L.latLng(lat, lng), L.latLng(lat + 0.01, lng + 0.0121)],
     router: new L.Routing.graphHopper("96c455e1-52dc-45fa-80bf-cf4631d03354"),
   }).addTo(map);
+
+  console.log(L.Routing);
 };
 
 export const getCoordinates = () => {

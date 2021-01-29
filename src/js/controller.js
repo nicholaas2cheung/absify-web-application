@@ -50,3 +50,9 @@ const init = function () {
 };
 
 init();
+
+// setTimeout(function () {
+//   document.querySelector(".leaflet-routing-alternatives-container").innerHTML =
+//     "";
+//   console.log(`executed`);
+// }, 10000);
