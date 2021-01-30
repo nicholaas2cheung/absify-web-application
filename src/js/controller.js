@@ -38,10 +38,14 @@ const controlEndButton = async function () {
     showRoute(model.state.allRunRecord);
 
     //get the data of the route (in model.js)
-    model.loadRouteData();
+    await model.loadRouteData();
 
+    //finalise all the data needed for rendering
+    model.loadRunRecord();
+
+    console.log(model.state.allRunRecord);
     //render the record using model.state data
-    // recordView.renderRecord(model.state.allRunRecord);
+    recordView.renderRecord(model.state.allRunRecord);
   } catch (err) {
     console.log(err);
   }

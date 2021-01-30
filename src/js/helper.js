@@ -91,10 +91,3 @@ export const getDateUnit = (date) => {
   if ((date + "").slice(-1) === "3") return "rd";
   return "th";
 };
-
-export const formatRunRecord = function () {
-  state.runRecord.duration =
-    state.runRecord.endTime - state.runRecord.startTime;
-  state.allRunRecord.push(state.runRecord);
-  return (state.runRecord = {});
-};

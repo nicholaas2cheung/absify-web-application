@@ -16,13 +16,16 @@ class recordView extends ButtonView {
     <p class="run-date">Running on ${record.date.getDate()}${getDateUnit(
         record.date.getDate()
       )}, ${getMonthName(record.date)}</p>
-    <p class="run-location">🏃🏻‍♂️ Kam Tai Court - ⛳️ City One </p>
     <div class="run-data flex">
-      <div class="run-distance"><p>👟 12 <span>KM</span></p></div>
+      <div class="run-distance"><p>👟 ${(record.distance / 1000).toFixed(
+        2
+      )} <span>KM</span></p></div>
       <div class="run-duration"><p>⏱ ${getMinute(
         record.duration
       )} <span>MIN</span></p></div>
-      <div class="run-speed"><p>⚡️ 30 <span>KM/H</span></p></div>
+      <div class="run-speed"><p>⚡️ ${Math.trunc(
+        record.speed
+      )} <span>KM/H</span></p></div>
     </div>
   </div>`
     );
