@@ -48,12 +48,20 @@ export const showMap = function (lat, lng) {
     .openPopup();
 };
 
-export const showRoute = async function (lat1, lng1, lat2, lng2) {
+export const showRoute = async function (data) {
   try {
+    let runRecord = data[data.length - 1];
     let route = await L.Routing.control({
-      waypoints: [L.latLng(lat1, lng1), L.latLng(lat2, lng2)],
-      router: new L.Routing.graphHopper("96c455e1-52dc-45fa-80bf-cf4631d03354"),
+      waypoints: [
+        L.latLng(runRecord.startPosition.lat, runRecord.startPosition.lng),
+        L.latLng(runRecord.endPosition.lat, runRecord.endPosition.lng),
+      ],
+      router: new L.Routing.graphHopper(
+        "96c455e1-52dc-45fa-80bf-cf4631d03354",
+        { urlParameters: { vehicle: "foot" } }
+      ),
     });
+
     route.addTo(myMap);
   } catch (err) {
     console.log(err);
@@ -62,7 +70,7 @@ export const showRoute = async function (lat1, lng1, lat2, lng2) {
 
 export const getRouteData = async function (lat1, lng1, lat2, lng2) {
   const response = await fetch(
-    `https://graphhopper.com/api/1/route?point=${lat1},${lng1}&point=${lat2},${lng2}&vehicle=car&locale=de&calc_points=false&key=96c455e1-52dc-45fa-80bf-cf4631d03354`
+    `https://graphhopper.com/api/1/route?point=${lat1},${lng1}&point=${lat2},${lng2}&vehicle=foot&locale=de&calc_points=false&key=96c455e1-52dc-45fa-80bf-cf4631d03354`
   );
   const data = await response.json();
 };
@@ -82,4 +90,11 @@ export const getDateUnit = (date) => {
   if ((date + "").slice(-1) === "2") return "nd";
   if ((date + "").slice(-1) === "3") return "rd";
   return "th";
+};
+
+export const formatRunRecord = function () {
+  state.runRecord.duration =
+    state.runRecord.endTime - state.runRecord.startTime;
+  state.allRunRecord.push(state.runRecord);
+  return (state.runRecord = {});
 };

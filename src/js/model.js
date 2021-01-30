@@ -1,5 +1,11 @@
 import { map } from "leaflet";
-import { geoError, showMap, getCoordinates } from "../js/helper";
+import {
+  geoError,
+  showMap,
+  getCoordinates,
+  formatRunRecord,
+  getRouteData,
+} from "../js/helper";
 
 export const state = {
   allRunRecord: [],
@@ -32,24 +38,32 @@ export const loadEndData = async function () {
     const { latitude: lat, longitude: lng } = position.coords;
     state.runRecord.endTime = +Date.now();
     state.runRecord.endPosition = { lat, lng };
+    // const routeData = await getRouteData(
+    //   state.runRecord.startPosition.lat,
+    //   state.runRecord.startPosition.lng,
+    //   state.runRecord.endPosition.lat,
+    //   state.runRecord.endPosition.lng
+    // );
+    formatRunRecord();
+
+    // console.log(routeData);
+    console.log(state.allRunRecord);
   } catch (e) {
     console.error(e);
     geoError();
   }
 };
 
-export const formatRunRecord = async function () {
-  try {
-    state.runRecord.duration =
-      state.runRecord.endTime - state.runRecord.startTime;
-    state.allRunRecord.push(state.runRecord);
-    return (state.runRecord = {});
-  } catch (e) {
-    console.error(e);
-  }
-};
+export const loadRouteData = async function () {
+  let route = state.allRunRecord[state.allRunRecord.length - 1];
+  const response = await fetch(
+    `https://graphhopper.com/api/1/route?point=${route.startPosition.lat},${route.startPosition.lng}&point=${route.endPosition.lat},${route.endPosition.lng}&vehicle=car&locale=de&calc_points=false&key=96c455e1-52dc-45fa-80bf-cf4631d03354`
+  );
 
-export const loadRoute = function () {};
+  const data = await response.json();
+
+  console.log(data);
+};
 
 export const loadCurrentPosition = function () {
   if (navigator.geolocation) {

@@ -31,16 +31,17 @@ const controlEndButton = async function () {
     stopwatchView.toggleClass();
 
     //capture endTime and endPosition to state
+    //formate the Result
     await model.loadEndData();
 
-    //calculate the whole running record
-    await model.formatRunRecord();
+    //first render the route
+    showRoute(model.state.allRunRecord);
+
+    //get the data of the route (in model.js)
+    model.loadRouteData();
 
     //render the record using model.state data
-    recordView.renderRecord(model.state.allRunRecord);
-
-    //show the route
-    showRoute(22.4, 114.0231, 22.4, 114.1123);
+    // recordView.renderRecord(model.state.allRunRecord);
   } catch (err) {
     console.log(err);
   }
