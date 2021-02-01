@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -18,15 +19,16 @@
 
   <body>
     <!---NavBar--->
+    <img src="/src/img/ellipse2.svg" alt="background-image" class="background">
     <div class="navbar">
       <div class="container flex">
         <h1 class="logo">ABSIFY</h1>
         <nav>
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Features</a></li>
-            <li><a href="">Map My Run</a></li>
-            <li><a href="">Track My Calories</a></li>
+          <ul id="navID">
+            <li><a href="" data-section="feature-section" class="nav-link">About ABSify</a></li>
+            <li><a href="" data-section="benefit-section" class="nav-link">Why ABSify</a></li>
+            <li><a href="" data-section="run-app" class="nav-link">Map My Run</a></li>
+            <li><a href="" data-section="calories-app" class="nav-link">Track My Calories</a></li>
           </ul>
         </nav>
       </div>
@@ -45,10 +47,10 @@
                     only five centuries, but also the leap into electronic typesetting,
                     remaining essentially unchanged.
               </p>
-              <button class="cta">Get Started Today</button>
+              <button class="cta">Build My Abs Now !</button>
           </div>
         <div class="hero-right">
-          <img src="src/img/hero-section-image.svg" alt="a-man-running" />
+          <img src="src/img/hero-section-image2.svg" alt="a-man-running" />
         </div>
       </div>
     </div>
@@ -85,6 +87,7 @@
                 <p>It is a losng established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -98,33 +101,48 @@
             <div class="benefit-left">
               <img src="/src/img/sport-girl.svg" alt="">
             </div>
-            <div class="benefit-right">
-
-              <div class="flex">
+            <div class="benefit-right flexbox">
+              
+              
+              <div class="benefit-slider">
                 <div class="benefit-card" id="benefit-card-1">
                   <img src="/src/img/pound.svg" alt="">
                   <h3>Say NO to </br>Rebound Weight Gain</h3>
                   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
                 </div>
-                <div class="benefit-card" id="benefit-card-2">
+
+                <div class="benefit-card hidden" id="benefit-card-2">
                   <img src="/src/img/apple.svg" alt="">
                   <h3>Understand </br>What You Eat</h3>
                   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
                 </div>
-                <div class="benefit-card" id="benefit-card-3">
+
+                <div class="benefit-card hidden" id="benefit-card-3">
                   <img src="/src/img/tracking.svg" alt="">
                   <h3>Track and Improve </br> Every Progress</h3>
                   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                </div>
+                </div> 
               </div>
-              <div class="pagination flex">
-                <div class="arrow-box">
-                  <img class="arrow" src="/src/img/left-arrow.svg" alt="">
-                </div>
-                <div class="arrow-box">
-                  <img class="arrow" src="/src/img/right-arrow.svg" alt="">
-                </div>
+
+              <div class="benefit-card-pagination">
+                <i class="far fa-arrow-alt-circle-left"></i>
+                <i class="far fa-arrow-alt-circle-right"></i>
               </div>
+              
+              <!-- <div class="benefit-button">
+                <button class="benefit-control-button"id="benefit-1">1</button>
+                <button class="benefit-control-button" id="benefit-2">2</button>
+                <button class="benefit-control-button" id="benefit-3">3</button>  
+              </div> -->
+
+              <!-- <div class="pagination flex">
+                <div class="arrow-box">
+                  <img class="arrow arrow-left" src="/src/img/left-arrow.svg" alt="">
+                </div>
+                <div class="arrow-box">
+                  <img class="arrow arrow-right" src="/src/img/right-arrow.svg" alt="">
+                </div>
+              </div> -->
           </div>
         </div>
       </div>
@@ -139,10 +157,11 @@
                   <button class="start-calories">Track My Calories</button>
               </div>
               <div class="start-right">
-                  <img src="/src/img/barbell-boy.svg" alt="">
+                  <img src="/src/img/barbell-boy2.svg" alt="">
               </div>
           </div>
 <!--App Section-->
+    <div class="container">
       <div class="run-app">
         <div class="run-app-header flex">
           <h3>🎽 Map Your Run Here</h3>
@@ -165,21 +184,10 @@
             <div class="run-app-record">
               <h5>RECORD</h5>
               <div id="run-record">
-                <!-- <div class="run-card">
+                <div class="run-card">
                   <div class="color-header"></div>
                   <p class="run-date">Running on 19th, January</p>
-                  <p class="run-location">🏃🏻‍♂️ Kam Tai Court - ⛳️ City One </p>
-                  <div class="run-data flex">
-                    <div class="run-distance"><p>👟 12 <span>KM</span></p></div>
-                    <div class="run-duration"><p>⏱ 30 <span>MIN</span></p></div>
-                    <div class="run-speed"><p>⚡️ 30 <span>KM/H</span></p></div>
-                  </div>
-                </div> -->
-
-                <!-- <div class="run-card">
-                  <div class="color-header"></div>
-                  <p class="run-date">Running on 19th, January</p>
-                  <p class="run-location">🏃🏻‍♂️ Kam Tai Court - ⛳️ City One </p>
+                  <!-- <p class="run-location">🏃🏻‍♂️ Kam Tai Court - ⛳️ City One </p> -->
                   <div class="run-data flex">
                     <div class="run-distance"><p>👟 12 <span>KM</span></p></div>
                     <div class="run-duration"><p>⏱ 30 <span>MIN</span></p></div>
@@ -188,6 +196,16 @@
                 </div>
 
                 <div class="run-card">
+                  <div class="color-header"></div>
+                  <p class="run-date">Running on 19th, January</p>
+                  <div class="run-data flex">
+                    <div class="run-distance"><p>👟 12 <span>KM</span></p></div>
+                    <div class="run-duration"><p>⏱ 30 <span>MIN</span></p></div>
+                    <div class="run-speed"><p>⚡️ 30 <span>KM/H</span></p></div>
+                  </div>
+                </div>
+
+                <!-- <div class="run-card">
                     <div class="color-header"></div>
                   <p class="run-date">Running on 19th, January</p>
                   <p class="run-location">🏃🏻‍♂️ Kam Tai Court - ⛳️ City One </p>
@@ -219,6 +237,6 @@
         </div>
       </div>
     </div>
+    </div>
   </body>
-
 </html>
