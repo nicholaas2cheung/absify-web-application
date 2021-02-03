@@ -1,10 +1,5 @@
-import { map } from "leaflet";
-import {
-  geoError,
-  showMap,
-  getCoordinates,
-  formatRunRecord,
-} from "../js/helper";
+import { map } from 'leaflet';
+import { geoError, showMap, getCoordinates, formatRunRecord } from '../js/helper';
 
 export const state = {
   allRunRecord: [],
@@ -55,8 +50,7 @@ export const loadRouteData = async function () {
 };
 
 export const loadRunRecord = function () {
-  state.runRecord.duration =
-    state.runRecord.endTime - state.runRecord.startTime;
+  state.runRecord.duration = state.runRecord.endTime - state.runRecord.startTime;
   state.runRecord.speed =
     state.runRecord.distance / 1000 / (state.runRecord.duration / 3600000);
   return (state.runRecord = {});

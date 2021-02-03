@@ -1,7 +1,7 @@
 class scrollToView {
-  _navBar = document.getElementById("navID");
+  _navBar = document.getElementById('navID');
   addScrollToHandler(handler) {
-    this._navBar.addEventListener("click", handler);
+    this._navBar.addEventListener('click', handler);
   }
 }
 
