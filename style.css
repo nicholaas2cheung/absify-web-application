@@ -22,11 +22,12 @@ body {
   font-family: 'Mulish', sans-serif;
   color: var(--pale-black);
   position: relative;
+  overflow-x: hidden;
 }
 
 body .background {
   position: absolute;
-  top: -2%;
+  top: 0%;
   right: 0%;
   transform: scale(1);
 }
@@ -106,7 +107,7 @@ button {
 /*<-----------------Navbar starts here----------------->*/
 
 .navbar {
-  margin: 70px 0px 0px;
+  padding-top: 70px;
   height: 100%;
   position: relative;
 }
@@ -117,6 +118,7 @@ button {
   justify-content: space-between;
   height: 100%;
 }
+
 .navbar .nav-links {
   display: flex;
 }
@@ -136,7 +138,7 @@ button {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  top: 0%;
+  top: 5%;
   right: 10%;
 }
 
@@ -174,7 +176,7 @@ button {
 }
 
 .hero-section .container {
-  margin-bottom: 180px;
+  padding-bottom: 180px;
 }
 
 .hero-section .hero-left {
@@ -293,10 +295,10 @@ button {
 
 .benefit-section .benefit-right .benefit-slider {
   display: flex;
+  margin-bottom: 3%;
 }
 
 .benefit-section .benefit-right .benefit-card {
-  transform-box: content-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -421,6 +423,11 @@ button {
   border-radius: 30px;
   padding: 30px;
   position: relative;
+}
+
+.run-app-wrap {
+  height: 100%;
+  padding-bottom: 30px;
 }
 
 .run-app .run-app-header {
@@ -669,15 +676,21 @@ div.leaflet-top.leaflet-right {
   transition-duration: 0.3s;
 }
 
+/*<-----------------1200px Media Queries starts here----------------->*/
+
 @media screen and (max-width: 1200px) {
   body .background {
     transform: scale(0.9);
     top: -2.5%;
-    right: -3.5%;
+    right: -6%;
   }
 
   .navbar a {
     font-size: 18px;
+  }
+
+  .hero-section .container {
+    padding-bottom: 0px;
   }
 
   .hero-section .hero-left {
@@ -707,17 +720,36 @@ div.leaflet-top.leaflet-right {
     font-size: 32px;
   }
 
-  .run-card {
+  .run-app #mapID {
+    width: 400px;
+  }
+
+  .run-app .timer .timer-count {
+    font-size: 60px;
+  }
+
+  .run-app .run-card {
     padding: 15px 40px 15px 80px;
   }
+
   .run-card .color-header {
     width: 50px;
   }
 
   .run-app .run-app-body .run-app-right .run-date {
-    font-size: 24px;
+    font-size: 21px;
+  }
+
+  .run-app .run-app-body .run-app-right .run-data p {
+    font-size: 21px;
+  }
+
+  .run-app .run-app-body .run-app-right .run-data span {
+    font-size: 15px;
   }
 }
+
+/*<-----------------1024px Media Queries starts here----------------->*/
 
 @media screen and (max-width: 1024px) {
   h2 {
@@ -727,7 +759,7 @@ div.leaflet-top.leaflet-right {
   body .background {
     position: absolute;
     top: -3%;
-    right: -8.5%;
+    right: -10.5%;
     transform: scale(0.8);
   }
 
@@ -740,7 +772,7 @@ div.leaflet-top.leaflet-right {
   }
 
   .hero-section .container {
-    margin-bottom: 90px;
+    padding-bottom: 90px;
   }
 
   .hero-section .hero-left {
@@ -749,10 +781,6 @@ div.leaflet-top.leaflet-right {
 
   .hero-section .hero-left h1 {
     font-size: 40px;
-  }
-
-  .hero-section .hero-right img {
-    width: 100%;
   }
 
   .feature-section .container {
@@ -835,19 +863,36 @@ div.leaflet-top.leaflet-right {
   }
 }
 
+/*<----------------768px Media Queries starts here----------------->*/
+
 @media screen and (max-width: 768px) {
+  h3 {
+    font-size: 21px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  .background-colour {
+    background-color: rgba(146, 200, 255, 0.7);
+  }
+
   body .background {
-    position: absolute;
-    top: -4%;
-    right: -16.5%;
-    transform: scale(0.7);
+    display: none;
   }
 
   .navbar .navbar-flex {
     flex-direction: column;
   }
 
+  .navbar .logo {
+    font-size: 48px;
+  }
+
   .navbar .toggle-button {
+    top: 60%;
+    right: 8%;
     display: flex;
   }
 
@@ -874,16 +919,170 @@ div.leaflet-top.leaflet-right {
     display: flex;
   }
 
+  .hero-section .container {
+    padding-bottom: 90px;
+  }
+
   .hero-section .hero-left {
-    width: 80%;
+    max-width: 100%;
   }
 
   .hero-section .hero-left h1 {
-    font-size: 36px;
-    color: var(--sky-blue);
-    margin-top: 25%;
+    font-size: 42px;
+    margin-top: 10%;
+  }
+
+  .hero-section .hero-right img {
+    display: none;
+  }
+
+  .benefit-section {
+    padding-top: 60px;
+  }
+
+  .benefit-section h2 {
+    max-width: 100%;
+    margin-top: 5%;
+  }
+
+  .benefit-section .benefit-right {
+    max-width: 100%;
+    margin-left: 0%;
+  }
+
+  .benefit-section .benefit-left img {
+    display: none;
+  }
+
+  .benefit-section .benefit-right .benefit-card {
+    filter: drop-shadow(12px 12px 0px #4071a1);
+  }
+
+  .start-section .start-right img {
+    display: none;
+  }
+
+  .start-section .start-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .start-section .start-flex {
+    justify-content: center;
+  }
+
+  .start-section .container {
+    padding-top: 60px;
+  }
+
+  .start-section .container {
+    padding-top: 60px;
+  }
+
+  .run-app .run-app-flex {
+    flex-direction: column;
+  }
+
+  .run-app .run-app-header p {
+    margin-top: 3%;
   }
 }
 
+/*<-----------------480px Media Queries starts here----------------->*/
+
 @media screen and (max-width: 480px) {
+  h2 {
+    font-size: 32px;
+  }
+
+  body .background {
+    display: none;
+    position: absolute;
+    top: -6%;
+    right: -50%;
+    transform: scale(0.6);
+  }
+
+  .navbar .toggle-button {
+    width: 40px;
+    height: 20px;
+    top: 70%;
+    right: 8%;
+  }
+
+  .navbar .toggle-button .bar {
+    height: 3px;
+    border-radius: 3px;
+  }
+
+  .hero-section .hero-left {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero-section .hero-left h1 {
+    font-size: 42px;
+    margin-top: 10%;
+  }
+
+  .hero-section .hero-left p {
+    font-size: 17px;
+    margin: 8% 0%;
+  }
+
+  .feature-section .container h2 {
+    margin: 40px 0px 30px 0px;
+    max-width: 90%;
+  }
+
+  .feature-section .container .feature-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5%;
+  }
+
+  .feature-section .container .feature-img {
+    max-width: 100%;
+    margin-bottom: 5%;
+  }
+
+  .feature-section .container {
+    margin-bottom: 90px;
+  }
+
+  .run-app .run-app-header h3 {
+    font-size: 21px;
+    margin-bottom: 5%;
+  }
+
+  .run-app .run-app-header p {
+    font-size: 18px;
+  }
+
+  .run-app .timer .timer-count {
+    font-size: 48px;
+  }
+
+  .run-app .run-card {
+    border-radius: 10px;
+    padding: 15px 5px 15px 45px;
+  }
+
+  .run-app .run-card .color-header {
+    width: 30px;
+  }
+
+  .run-app .run-app-body .run-app-right .run-date {
+    font-size: 15px;
+  }
+
+  .run-app .run-app-body .run-app-right .run-data p {
+    font-size: 12px;
+  }
+  .run-app .run-app-body .run-app-right .run-data span {
+    font-size: 10px;
+  }
 }
