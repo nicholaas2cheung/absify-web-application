@@ -27,7 +27,7 @@ body {
 body .background {
   position: absolute;
   top: -1%;
-  right: -1%;
+  right: 0%;
   transform: scale(1);
 }
 
@@ -115,8 +115,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  align-content: center;
   height: 100%;
 }
+
 .navbar ul {
   display: flex;
 }
@@ -151,7 +153,7 @@ button {
 
 .hero-section .hero-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-betweens;
 }
 
 .hero-section .container {
@@ -159,7 +161,7 @@ button {
 }
 
 .hero-section .hero-left {
-  max-width: 50%;
+  max-width: 40%;
 }
 
 .hero-section .hero-left h1 {
@@ -183,15 +185,11 @@ button {
   filter: drop-shadow(0px 8px 0px #373031);
 }
 
-.hero-section .hero-right {
-  align-self: center;
-}
-
 .hero-section .hero-right img {
-  max-width: 100%;
-  margin-top: 15%;
-  margin-left: 5%;
-  padding-right: 5%;
+  max-width: 60%;
+  margin-top: 5%;
+  position: absolute;
+  right: 8%;
 }
 
 /*<-----------------Feature Section starts here----------------->*/
@@ -206,10 +204,6 @@ button {
   margin-bottom: 60px;
 }
 
-.feature-section .container .feature-img {
-  max-width: 50%;
-}
-
 .feature-section .container h2 {
   margin: 180px 0px 70px 0px;
   letter-spacing: 0.05em;
@@ -218,8 +212,7 @@ button {
 }
 
 .feature-section .container h3 {
-  margin: 2% 0% 2% 0%;
-  /* margin: 15px 0px 10px 0px; */
+  margin: 15px 0px 10px 0px;
   color: var(--sky-blue);
 }
 
@@ -236,13 +229,9 @@ button {
 
 .benefit-section {
   padding-top: 120px;
-  background: url(src/img/curved-background4.svg) no-repeat;
+  background: url(/curved-background4.7137965d.svg) no-repeat;
   background-position: top center;
   position: relative;
-}
-
-.benefit-section .container {
-  margin-bottom: -10px;
 }
 
 .benefit-section .benefit-flex {
@@ -253,7 +242,7 @@ button {
 .benefit-section h2 {
   max-width: 70%;
   color: var(--white);
-  margin-bottom: 8%;
+  margin-bottom: 5%;
 }
 
 .benefit-section .benefit-left {
@@ -282,10 +271,10 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 500px;
-  min-height: 500px;
+  min-width: 540px;
+  min-height: 540px;
   margin-right: 5%;
-  padding: 3% 2%;
+  padding: 64px 30px;
   border-radius: 100px;
   background-color: var(--sky-blue);
   filter: drop-shadow(10px 15px 0px #4071a1);
@@ -349,12 +338,12 @@ button {
 }
 
 .start-section .start-right {
-  max-width: 55%;
+  max-width: 50%;
 }
 
 .start-section .start-left h3 {
   margin-bottom: 30px;
-  font-size: 54px;
+  font-size: 60px;
   color: var(--white);
   filter: drop-shadow(0px 5px 0px #528fcc);
 }
@@ -377,7 +366,7 @@ button {
 .start-section .start-left .start-run {
   background-color: var(--yellowish-orange);
   border: 5px solid var(--yellowish-orange);
-  padding: 10% 8%;
+  padding: 75px 60px;
 }
 
 .start-section .start-left .start-calories {
@@ -385,11 +374,11 @@ button {
   align-items: center;
   background-color: var(--sky-blue);
   border: 5px solid var(--sky-blue);
-  padding: 8%;
+  padding: 65px;
 }
 
 .start-section .start-right img {
-  width: 110%;
+  width: 130%;
 }
 
 /*<-----------------Run-App starts here----------------->*/
@@ -638,173 +627,44 @@ div.leaflet-top.leaflet-right {
 }
 
 @media screen and (max-width: 1200px) {
-  body .background {
-    transform: scale(0.9);
-    top: -2.5%;
-    right: -5%;
-  }
-
-  .hero-section .hero-left {
-    max-width: 50%;
-  }
-
-  .hero-section .hero-left h1 {
-    font-size: 54px;
-  }
-
-  .hero-section .hero-left p {
-    font-size: 16px;
-  }
-
-  .hero-section .hero-left .cta {
-    font-size: 21px;
-  }
-
-  .benefit-section .benefit-right .benefit-card {
-    min-width: 400px;
-    min-height: 400px;
-    padding: 8% 4%;
-    border-radius: 80px;
-  }
-
-  .benefit-section .benefit-right .benefit-card h3 {
-    font-size: 32px;
-  }
-
-  .run-card {
-    padding: 15px 40px 15px 80px;
-  }
-  .run-card .color-header {
-    width: 50px;
-  }
-
-  .run-app .run-app-body .run-app-right .run-date {
-    font-size: 24px;
-  }
 }
 
 @media screen and (max-width: 1024px) {
-  h2 {
-    font-size: 42px;
-  }
   body .background {
-    position: absolute;
-    right: -9%;
-    transform: scale(0.8);
+    transform: scale(1.2);
+    top: -5%;
+    left: 40%;
+    z-index: -1;
   }
 
-  .navbar a {
-    padding: 0px;
-    font-size: 21px;
-  }
-
-  .hero-section .container {
-    margin-bottom: 90px;
+  .navbar li {
+    text-align: center;
   }
 
   .hero-section .hero-left {
-    width: 90%;
-  }
-
-  .hero-section .hero-left h1 {
-    font-size: 42px;
+    max-width: 55%;
   }
 
   .hero-section .hero-right img {
-    width: 100%;
-  }
-
-  .feature-section .container {
-    margin-bottom: 120px;
+    max-width: 45%;
+    margin-top: 12%;
+    position: absolute;
+    right: 2%;
   }
 
   .feature-section .container h2 {
-    margin: 90px 0px 70px 0px;
+    margin: 180px 0px 70px 0px;
+    letter-spacing: 0.05em;
     max-width: 90%;
-  }
-
-  .feature-section .container p {
-    font-size: 15px;
-  }
-
-  .benefit-section .benefit-right .benefit-card {
-    min-width: 300px;
-    min-height: 300px;
-    padding: 8% 4%;
-    border-radius: 60px;
-  }
-
-  .benefit-section .benefit-right .benefit-card h3 {
-    font-size: 24px;
-  }
-
-  .benefit-section .benefit-right .benefit-card p {
-    max-width: 90%;
-  }
-
-  .start-section .container {
-    padding-top: 120px;
-  }
-
-  .start-section .start-left button {
-    font-size: 32px;
-  }
-
-  .start-section .start-left h3 {
-    font-size: 42px;
-  }
-
-  .start-section .start-left button {
-    width: 300px;
-    height: 150px;
-  }
-
-  .run-app .run-app-header h3 {
-    font-size: 32px;
-  }
-
-  .run-app .run-app-header p {
-    font-size: 21px;
-  }
-
-  .run-app .app-body-flex {
-    flex-flow: column;
-  }
-
-  .run-app .map-section {
-    margin-right: 0px;
-  }
-
-  .run-app #mapID {
-    width: 100%;
-    height: 600px;
-  }
-
-  .run-app .run-app-time {
-    padding-top: 5%;
-  }
-
-  .run-app .run-data {
-    display: flex;
-    justify-content: left;
-  }
-
-  .run-app .run-data-item {
-    margin-right: 2%;
+    color: var(--redish-red);
   }
 }
 
 @media screen and (max-width: 768px) {
-  .hero-section .hero-left {
-    width: 20%;
-  }
-
-  .hero-section .hero-left h1 {
-    font-size: 36px;
-    color: var(--sky-blue);
-    margin-top: 25%;
-  }
 }
 
 @media screen and (max-width: 480px) {
 }
+
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
