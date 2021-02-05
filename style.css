@@ -26,8 +26,8 @@ body {
 
 body .background {
   position: absolute;
-  top: -1%;
-  right: -1%;
+  top: -2%;
+  right: 0%;
   transform: scale(1);
 }
 
@@ -117,7 +117,7 @@ button {
   justify-content: space-between;
   height: 100%;
 }
-.navbar ul {
+.navbar .nav-links {
   display: flex;
 }
 
@@ -126,6 +126,25 @@ button {
   font-weight: 500;
   font-size: 21px;
   letter-spacing: 0.01em;
+}
+
+.navbar .toggle-button {
+  padding: 0px;
+  width: 75px;
+  height: 40px;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 0%;
+  right: 10%;
+}
+
+.navbar .toggle-button .bar {
+  height: 5px;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 5px;
 }
 
 .navbar .cta-link {
@@ -159,7 +178,7 @@ button {
 }
 
 .hero-section .hero-left {
-  max-width: 50%;
+  max-width: 40%;
 }
 
 .hero-section .hero-left h1 {
@@ -330,9 +349,9 @@ button {
 /*<-----------------Start Section starts here----------------->*/
 
 .start-section {
-  height: 500vh;
+  height: 100%;
   padding-top: 12px;
-  background: linear-gradient(#92c8ff, rgba(196, 196, 196, 0));
+  background: linear-gradient(#92c8ff, rgba(196, 196, 196, 0.2));
 }
 
 .start-section .start-flex {
@@ -342,6 +361,7 @@ button {
 
 .start-section .container {
   padding-top: 180px;
+  padding-bottom: 90px;
 }
 
 .start-section .start-left {
@@ -599,6 +619,18 @@ div.leaflet-top.leaflet-right {
   height: 0px !important;
 }
 
+/*<-----------------Footer Section starts here----------------->*/
+
+.footer-section {
+  background-color: var(--greenish-dark);
+  padding: 5%;
+}
+
+.footer-section .disclaimer {
+  color: var(--white);
+  text-align: center;
+}
+
 /*<-----------------Website Animation Starts Here----------------->*/
 
 .navbar .nav-link:hover {
@@ -641,7 +673,11 @@ div.leaflet-top.leaflet-right {
   body .background {
     transform: scale(0.9);
     top: -2.5%;
-    right: -5%;
+    right: -3.5%;
+  }
+
+  .navbar a {
+    font-size: 18px;
   }
 
   .hero-section .hero-left {
@@ -687,15 +723,20 @@ div.leaflet-top.leaflet-right {
   h2 {
     font-size: 42px;
   }
+
   body .background {
     position: absolute;
-    right: -9%;
+    top: -3%;
+    right: -8.5%;
     transform: scale(0.8);
   }
 
+  .navbar .logo {
+    font-size: 36px;
+  }
+
   .navbar a {
-    padding: 0px;
-    font-size: 21px;
+    font-size: 14px;
   }
 
   .hero-section .container {
@@ -707,7 +748,7 @@ div.leaflet-top.leaflet-right {
   }
 
   .hero-section .hero-left h1 {
-    font-size: 42px;
+    font-size: 40px;
   }
 
   .hero-section .hero-right img {
@@ -795,8 +836,46 @@ div.leaflet-top.leaflet-right {
 }
 
 @media screen and (max-width: 768px) {
+  body .background {
+    position: absolute;
+    top: -4%;
+    right: -16.5%;
+    transform: scale(0.7);
+  }
+
+  .navbar .navbar-flex {
+    flex-direction: column;
+  }
+
+  .navbar .toggle-button {
+    display: flex;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin: 10% 0%;
+    display: none;
+  }
+
+  .navbar li {
+    text-align: center;
+    width: 100%;
+    margin: 3% 0%;
+  }
+
+  .navbar a {
+    padding: 0px;
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
   .hero-section .hero-left {
-    width: 20%;
+    width: 80%;
   }
 
   .hero-section .hero-left h1 {

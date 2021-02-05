@@ -106,3 +106,12 @@ console.log(cardView.benefitCard);
 // const arrowRight = document.querySelector('.arrow-right');
 
 //to helper
+
+const toggleButton = document.querySelector('.toggle-button');
+const navbarLinks = document.querySelector('.nav-links');
+
+toggleButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  navbarLinks.classList.toggle('active');
+  console.log(`testing!`);
+});
