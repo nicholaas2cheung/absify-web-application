@@ -55,6 +55,8 @@ const controlEndButton = async function () {
     //finalise all the data needed for rendering
     model.loadRunRecord();
 
+    //set the data to the localStorage
+
     console.log(model.state.allRunRecord);
     //render the record using model.state data
     recordView.renderRecord(model.state.allRunRecord);
@@ -88,6 +90,8 @@ const controlCardLeft = function () {
 };
 
 const init = function () {
+  model.loadLocalStorage();
+  recordView.renderAllRecord(model.state.allRunRecord);
   initCardScroll(cardView.benefitCard);
   model.loadCurrentPosition();
   stopwatchView.addEndButtonHandler(controlEndButton);
@@ -99,19 +103,31 @@ const init = function () {
 
 init();
 
-console.log(cardView.benefitCard);
-
-// const benefitCard = document.querySelectorAll('.benefit-card');
-// const arrowLeft = document.querySelector('.arrow-left');
-// const arrowRight = document.querySelector('.arrow-right');
-
-//to helper
-
+//Mobile Burger Navigation
 const toggleButton = document.querySelector('.toggle-button');
 const navbarLinks = document.querySelector('.nav-links');
 
 toggleButton.addEventListener('click', function (e) {
   e.preventDefault();
   navbarLinks.classList.toggle('active');
-  console.log(`testing!`);
+});
+
+//Reveal Section Animation
+const allSections = document.querySelectorAll('.section');
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section-hidden');
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.1,
+});
+
+allSections.forEach((section) => {
+  sectionObserver.observe(section);
+  section.classList.add('section-hidden');
 });

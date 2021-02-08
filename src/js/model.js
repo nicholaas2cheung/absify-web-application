@@ -46,13 +46,14 @@ export const loadRouteData = async function () {
   );
   const data = await response.json();
   state.runRecord.distance = data.paths[0].distance;
-  console.log(data);
 };
 
 export const loadRunRecord = function () {
   state.runRecord.duration = state.runRecord.endTime - state.runRecord.startTime;
   state.runRecord.speed =
     state.runRecord.distance / 1000 / (state.runRecord.duration / 3600000);
+  localStorage.setItem('records', JSON.stringify(state.allRunRecord));
+  console.log(state.allRunRecord);
   return (state.runRecord = {});
 };
 
@@ -63,4 +64,10 @@ export const loadCurrentPosition = function () {
       showMap(lat, lng);
     }, geoError);
   }
+};
+
+export const loadLocalStorage = function () {
+  const data = JSON.parse(localStorage.getItem('records'));
+  if (!data) return;
+  state.allRunRecord = data;
 };

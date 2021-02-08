@@ -33,23 +33,30 @@ class recordView extends ButtonView {
 
   //it is for loading data from the localStorage
   renderAllRecord(data) {
+    if (data === []) return;
     this._data = [...data];
     const obj = this;
     this._data.forEach((record) => {
+      console.log(record);
+      let time = new Date(record.date);
+      console.log(time);
       obj._renderedEl.insertAdjacentHTML(
-        'afterend',
+        'afterbegin',
         `<div class="run-card">
         <div class="color-header"></div>
-        <p class="run-date">Running on ${record.date.getDate()}${getDateUnit(
-          record.date.getDate()
-        )}, ${getMonthName(record.date)}</p>
-        <p class="run-location">🏃🏻‍♂️ Kam Tai Court - ⛳️ City One </p>
+        <p class="run-date">Running on ${time.getDate()}${getDateUnit(
+          time
+        )}, ${getMonthName(time)}</p>
         <div class="run-data flex">
-          <div class="run-distance"><p>👟 12 <span>KM</span></p></div>
+          <div class="run-distance"><p>👟 ${(record.distance / 1000).toFixed(
+            2
+          )} <span>KM</span></p></div>
           <div class="run-duration"><p>⏱ ${getMinute(
             record.duration
           )} <span>MIN</span></p></div>
-          <div class="run-speed"><p>⚡️ 30 <span>KM/H</span></p></div>
+          <div class="run-speed"><p>⚡️${Math.trunc(
+            record.speed
+          )}<span>KM/H</span></p></div>
         </div>
       </div>
       `

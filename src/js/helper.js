@@ -90,7 +90,6 @@ export const getDateUnit = (date) => {
 };
 
 export const initCardScroll = (El) => {
-  console.log(`testing!`);
   El.forEach((card) => {
     card.style.transform = `translateX(0%)`;
   });

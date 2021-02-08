@@ -1,10 +1,10 @@
 export default class ButtonView {
-  _btnStart = document.getElementById("start-button");
-  _btnEnd = document.getElementById("end-button");
+  _btnStart = document.getElementById('start-button');
+  _btnEnd = document.getElementById('end-button');
 
   toggleClass() {
-    this._btnStart.classList.toggle("hidden");
-    this._btnEnd.classList.toggle("hidden");
+    this._btnStart.classList.toggle('hidden');
+    this._btnEnd.classList.toggle('hidden');
   }
 
   btnStart() {
@@ -16,10 +16,10 @@ export default class ButtonView {
   }
 
   addStartButtonHandler(handler) {
-    this._btnStart.addEventListener("click", handler);
+    this._btnStart.addEventListener('click', handler);
   }
 
   addEndButtonHandler(handler) {
-    this._btnEnd.addEventListener("click", handler);
+    this._btnEnd.addEventListener('click', handler);
   }
 }

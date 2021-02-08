@@ -1,8 +1,8 @@
-import { formatTime, timerInterval, getStartTime } from "../helper";
-import ButtonView from "./ButtonView";
+import { formatTime, timerInterval, getStartTime } from '../helper';
+import ButtonView from './ButtonView';
 
 class stopwatchView extends ButtonView {
-  _viewTimer = document.getElementById("time");
+  _viewTimer = document.getElementById('time');
   _timerInterval;
 
   renderStopwatch() {
